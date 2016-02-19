@@ -1,0 +1,136 @@
+<script>
+    
+	/*
+	var markers = null;
+
+	$.getJSON('foo.json', function (data) {
+		alert(data);
+		markers = data;
+		alert(markers);
+	});
+	
+	*/
+	
+	var markers = {
+  "statusType": "OK",
+  "entity": [
+    {
+      "Latitude": "37.335909876198461",
+      "Longitude": "-121.87890189283439"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335909876198464",
+      "Longitude": "-121.87890189283449"
+    },
+    {
+      "Latitude": "37.335631",
+      "Longitude": "-121.885888"
+    },
+    {
+      "Latitude": "37.335418",
+      "Longitude": "-121.885748"
+    },
+    {
+      "Latitude": "37.332429",
+      "Longitude": "-121.898623"
+    },
+    {
+      "Latitude": "37.332429",
+      "Longitude": "-121.898623"
+    },
+    {
+      "Latitude": "37.341280",
+      "Longitude": "-121.897230"
+    },
+    {
+      "Latitude": "37.314053",
+      "Longitude": "-121.871663"
+    }
+  ],
+  "entityType": "java.util.ArrayList",
+  "metadata": {},
+  "status": 200
+};
+	
+    window.onload = function () {
+        getLocation();
+		alert("on load");
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers.entity[0].Latitude, markers.entity[0].Longitude),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+ 
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+ 
+        for (var i = 0; i < markers.entity.length; i++) {
+            var data = markers.entity[i];
+            var myLatlng = new google.maps.LatLng(data.Latitude, data.Longitude);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+        }
+		
+		var showPosition = function (position) {
+		var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		// Do whatever you want with userLatLng.
+		var marker1 = new google.maps.Marker({
+			position: userLatLng,
+			title: 'Your Location',
+			map: map
+		});
+}
+		
+		
+    }
+</script>
